@@ -1,5 +1,12 @@
 # Affinities_POC
 
+About
+- Affinities_POC is both a technical proof-of-concept for producing print-ready PDFs from Markdown and a substantive scholarly essay on the question of affinities in human relationships. The main source file, `Affinities_POC_improved.md`, contains a carefully referenced essay (March 2026) that synthesizes behavioral-genetics evidence, social-psychological findings, and normative caveats. The workspace also includes the generated PDF and simple reproduction instructions for macOS.
+
+Purpose
+- This repository preserves the essay source and the exported A4 PDF `Affinities_POC_improved.pdf`, and documents how to reproduce the PDF generation.
+# Affinities_POC
+
 This project contains the Markdown source, notes, and a short proof-of-concept analysis about affinities between people. Its main purpose is to generate a formatted A4 PDF report from the included Markdown using `pandoc` and a LaTeX engine.
 
 Purpose
