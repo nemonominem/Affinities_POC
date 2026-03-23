@@ -30,7 +30,7 @@ geometry: margin=2.5cm
 
 This essay is based on an idea and initial analysis by the author, which was then refined using GenAI models via the Cline extension in VS Code[^disclaimer]. Editorial clean-up and final shaping was by the author. This essay was also used as a test-bench for optimal deployment of GenAI tools.
 
-[^disclaimer]: Models used: mimo-v2-pro and trinity-large-preview on Cline (both free); final sub-agent peer-review and adjustments by Claude Sonnet 4.6 (cost: NZD 2.67).
+[^disclaimer]: Models used: mimo-v2-pro and trinity-large-preview on Cline (both free); final sub-agent peer-review and adjustments by Claude Sonnet 4.6 (cost: NZD 2.21).
 
 ---
 
@@ -64,9 +64,11 @@ Personality traits are highly polygenic, influenced by thousands of genetic vari
 |--------------|--------------------------|-------------------------------|:--------------:|------------------|
 | Partner | ~0 | ~0 | Yes (fully) | **Very High** — choice is the primary signal (plus modest assortative mating) |
 | Chosen Friends | ~0 | ~0 | Yes (fully) | **Very High** — choice is the only signal |
-| Children | 0.5 | ~0.40–0.50 (small mate-choice boost) | Indirect (via partner choice) | **High** — significant genetic baseline plus indirect filtering |
-| Parents | 0.5 | ~0.40–0.50 | No (your parents chose partners) | **Moderate** — decent genetic baseline, but no agency on your part |
+| Children | 0.5 | ~0.40–0.50 (same as parents; assortative mating boosts both equally) | Indirect¹ (parent exercised partner choice) | **Moderate-High** — significant genetic baseline plus indirect agency effect |
+| Parents | 0.5 | ~0.40–0.50 | No (you did not choose your parents) | **Moderate** — same genetic baseline, but no agency on your part |
 | Siblings | 0.5 | ~0.35–0.45 | No | **Moderate-Low** — same genetic baseline, greater non-additive randomness |
+
+¹ *"Indirect (parent exercised partner choice)"* is written from the parent's perspective. From the child's perspective, both parents are equally unchosen — the same situation as the Parents row. The Children > Parents ranking therefore reflects an asymmetry in **agency** (the parent made a choice; the child did not), not an asymmetry in the underlying genetic covariance, which is identical in both directions.
 
 **Observed data supports this picture**: parent–child and sibling correlations for personality are typically only ~0.15–0.25 (sometimes approaching ~0.25 with better measurement) **[4][10]**, far below what a pure 50% additive model would predict without non-additive drag.
 
@@ -76,7 +78,13 @@ We select partners and friends deliberately for matching values, humor, lifestyl
 
 ### Children: Indirect Agency
 
-Relatedness is strong (~0.40–0.50 adjusted for non-additive effects, though some estimates suggest as low as ~0.35 for traits with more epistasis) **[1][3]**. Critically, the parent chose the other parent, indirectly shaping half the genetic package transmitted to the child. This creates a directional asymmetry in agency: from the *parent's* vantage point, the child's genotype partly reflects a choice they made; from the *child's* vantage point, both parents were equally unchosen. This asymmetry in agency does not translate directly into differential relational obligations, but it does mean the statistical signal for parent→child compatibility is slightly stronger (by the assortative-mating boost) than for child→parent. See the Appendix for a formal derivation showing this effect is numerically small: with observed partner personality correlations of r_parents ≈ 0.10–0.15, the additive regression coefficient of child on parent rises only from β = 0.50 to approximately β = 0.505–0.575—a marginal increment that likely disappears under non-additive effects and environmental noise. The asymmetry is real in principle but modest in practice.
+Relatedness is strong (~0.40–0.50 adjusted for non-additive effects, though some estimates suggest as low as ~0.35 for traits with more epistasis) **[1][3]**. Critically, the parent chose the other parent, indirectly shaping half the genetic package transmitted to the child.
+
+**Clarifying asymmetry: the genetic baseline itself is symmetric between parent and child.** If parents assort on personality, that assortative mating increases the child's expected genetic covariance with each parent by the same amount; algebraically this follows from $G_c = \tfrac{1}{2}G_m + \tfrac{1}{2}G_f$ (see Appendix). Since covariance is symmetric — $\mathrm{Cov}(G_c, G_m) = \mathrm{Cov}(G_m, G_c)$ — the expected purely genetic affinity between a child and each parent is the same in both directions. Assortative mating produces a uniform, symmetric genetic effect on all parent-child covariances.
+
+The true asymmetry is in agency and the normative/sunk-cost dimension, not in the genetic accounting. From the *parent's* vantage point, the child's genotype partly reflects a choice they made (partner choice); from the *child's* vantage point, both parents were equally unchosen. Children exercised zero personal agency over this bond and bear no responsibility for parents' prior choices. This asymmetry in agency does not translate directly into differential genetic affinity, but it does justify treating the relationship differently from the child's side versus the parent's side.
+
+See the Appendix for a formal derivation confirming that the assortative mating boost is numerically small and affects both directions equally: with observed partner personality correlations of r_parents ≈ 0.10–0.15, the additive genetic covariance of child with each parent rises by a marginal increment that likely disappears under non-additive effects and environmental noise.
 
 ### Parents and Siblings: No Agency
 
@@ -115,8 +123,8 @@ Based on the evidence reviewed above, personality compatibility tendencies rank 
 **Partners and Chosen Friends** > **Children** > **Parents** > **Siblings**
 
 - **Partners and chosen friends** rank first because compatibility rests entirely on active selection, which is the strongest available signal.
-- **Children** rank second because the parent contributed indirect genetic agency via partner choice. In practice, the numerical boost over parents is modest (see Appendix), but the directional logic holds.
-- **Parents** rank third: same genetic baseline as children, but no agency was exercised by the person doing the evaluating.
+- **Children** rank second because the parent exercised real agency (partner choice), indirectly filtering the child's genotype. Note that the underlying genetic covariance is symmetric — it is identical in both directions (child↔parent) — but the *agency* exercised is asymmetric: the parent chose; the child did not. The ranking reflects this agency asymmetry, not a differential in genetic affinity.
+- **Parents** rank third: the same genetic baseline applies, but from the evaluator's (child's) perspective, no agency was exercised — both parents were unchosen.
 - **Siblings** rank fourth: same nominal genetic baseline, but with greater non-additive randomness reducing the effective personality signal.
 
 This ranking describes statistical tendencies in personality overlap and compatibility likelihood. It does not prescribe how to treat people, does not imply that family bonds matter less (they operate through very different channels—attachment, loyalty, shared history), and does not justify treating any relationship as disposable. Individual variation is vast, and averages obscure many exceptional cases.
@@ -127,7 +135,7 @@ This ranking describes statistical tendencies in personality overlap and compati
 
 1. **It is statistically reasonable to predict higher day-to-day personality compatibility with chosen friends and partners than with family members.** This does not mean family is less important—its importance stems more from attachment, loyalty, shared history, and obligation than from natural personality affinity.
 
-2. **There is a directional asymmetry in parent–child compatibility predictions.** From the parent's vantage point, the child's genotype partly reflects their mate choice; from the child's vantage point, both parents were unchosen. In practice, this asymmetry is quantitatively small (see Appendix) but theoretically present.
+2. **The parent–child compatibility asymmetry is one of agency, not genetics.** The underlying genetic covariance between parent and child is symmetric (identical in both directions). What differs is who exercised agency: parents chose their partners, indirectly shaping the child's genotype; children exercised no equivalent choice. Separately, sunk-cost and responsibility considerations are directional in the normative domain — parents bear different responsibilities than children do — but these are ethical considerations, not biological ones.
 
 3. **Prioritizing chosen relationships is not irrational.** The statistics support the observation that relationships where both parties actively selected for compatibility tend to show higher personality overlap.
 
@@ -165,11 +173,13 @@ The covariance between child and mother is
 
 $$\mathrm{Cov}(G_c,G_m)=\mathrm{Cov}\big(\tfrac{1}{2}G_m+\tfrac{1}{2}G_f,\;G_m\big)=\tfrac{1}{2}\mathrm{Var}(G_m)+\tfrac{1}{2}\mathrm{Cov}(G_f,G_m).$$
 
+The identical formula holds for the father by symmetry of the argument (swap $m \leftrightarrow f$). Crucially, since $\mathrm{Cov}(G_c,G_m) = \mathrm{Cov}(G_m,G_c)$ by definition, the covariance is the same whether evaluated from the child's side or the parent's side — **the genetic relationship is symmetric regardless of direction**.
+
 Let $r_{\mathrm{parents}}=\mathrm{Corr}(G_f,G_m)$ and $\mathrm{Var}(G_m)=\sigma_G^2$. Then
 
 $$\mathrm{Cov}(G_c,G_m)=\sigma_G^2\cdot\tfrac{1}{2}(1+r_{\mathrm{parents}}),$$
 
-so the expected additive regression of child on that parent is
+so the additive genetic regression coefficient of child on parent (and, symmetrically, of parent on child) is
 
 $$\beta_{c:\!m}=\frac{\mathrm{Cov}(G_c,G_m)}{\mathrm{Var}(G_m)}=\tfrac{1}{2}(1+r_{\mathrm{parents}}).$$
 
@@ -177,7 +187,7 @@ Empirically, partner personality correlations on Big Five traits are typically $
 
 $$\beta_{c:\!m} \approx \tfrac{1}{2}(1+0.10) \approx 0.55 \quad \text{to} \quad \tfrac{1}{2}(1+0.15) \approx 0.575.$$
 
-This is only marginally above the baseline of 0.50. When environmental and non-additive variance are considered, phenotypic correlations between parent and child are typically 0.15–0.25, with essentially no practically detectable difference attributable to assortative mating alone. The asymmetry is therefore **real in principle but difficult to detect in practice**.
+**What this proves**: (1) Assortative mating raises the additive genetic covariance between a child and each parent by the same amount — the effect is symmetric, not directional. (2) The boost is numerically small (β rises from 0.50 to at most ~0.575). When environmental and non-additive variance are considered, phenotypic correlations between parent and child are typically 0.15–0.25, with essentially no practically detectable increment attributable to assortative mating alone. **The Children > Parents ranking in the main text rests on agency asymmetry (who exercised choice), not on any genetic directional asymmetry, which does not exist.**
 
 ---
 
