@@ -1,23 +1,5 @@
 # Genetic and Choice-Based Affinities in Human Relationships
 
----
-header-includes:
-	- |
-		\usepackage[hyphens]{url}
-		\usepackage{hyperref}
-		\usepackage{microtype}
-		\usepackage{fancyhdr}
-		\pagestyle{fancy}
-		\fancyhf{}
-		\fancyfoot[L]{Page\ \thepage}
-		\fancyfoot[R]{Generated:\ \today}
-		\renewcommand{\headrulewidth}{0pt}
-		\renewcommand{\footrulewidth}{0.4pt}
-		\sloppy
-		\urlstyle{same}
-geometry: margin=2.5cm
----
-
 *A framework for understanding the statistical likelihood of personality compatibility across relationship types*
 
 **Author:** Gilles DEMANEUF (conception, editorial role) — ORCID: 0000-0001-7277-9533
@@ -30,7 +12,7 @@ geometry: margin=2.5cm
 
 This essay is based on an idea and initial analysis by the author, which was then refined using GenAI models via the Cline extension in VS Code[^disclaimer]. Editorial clean-up and final shaping was by the author. This essay was also used as a test-bench for optimal deployment of GenAI tools.
 
-[^disclaimer]: Models used: mimo-v2-pro and trinity-large-preview on Cline (both free); final sub-agent peer-review and adjustments by Claude Sonnet 4.6 (cost: NZD 2.21).
+[^disclaimer]: Models used: mimo-v2-pro and trinity-large-preview on Cline (both free); final sub-agent peer-review and adjustments by Claude Sonnet 4.6 (cost: NZD 3.98)
 
 ---
 
@@ -60,13 +42,20 @@ Personality traits are highly polygenic, influenced by thousands of genetic vari
 
 *A note on precision: The estimates below are derived indirectly from observed phenotypic correlations and additive genetic models. In particular, the "adjusted personality relatedness" column attempts to capture the fact that non-additive genetic effects reduce the effective genetic signal below the nominal 50% DNA sharing. As a back-calculation: if phenotypic correlations between relatives are r ≈ 0.20 and narrow-sense heritability is h² ≈ 0.40, then the implied additive genetic correlation is r/h² ≈ 0.50—consistent with the additive model. Evidence for reductions below 0.50 comes from twin-plus-sibling designs that detect non-additive variance **[3]**. These should be treated as rough guides rather than precise measurements. The relationship between genetic similarity and phenotypic correlation is not perfectly linear, and the exact values depend on trait-specific architecture, measurement quality, and population. "Effective genetic personality relatedness" as used here is a shorthand, not a standard behavioral-genetics term; it refers loosely to the degree to which shared genes are expected to translate into shared personality traits after accounting for non-additive effects.*
 
-| Relationship | Additive DNA Relatedness | Approx. Personality-Trait Relatedness (adjusted) | Agency Involved? | Predicted Compatibility Tendency |
-|--------------|--------------------------|-------------------------------|:--------------:|------------------|
-| Partner | ~0 | ~0 | Yes (fully) | **Very High** — choice is the primary signal (plus modest assortative mating) |
-| Chosen Friends | ~0 | ~0 | Yes (fully) | **Very High** — choice is the only signal |
-| Children | 0.5 | ~0.40–0.50 (same as parents; assortative mating boosts both equally) | Indirect¹ (parent exercised partner choice) | **Moderate-High** — significant genetic baseline plus indirect agency effect |
-| Parents | 0.5 | ~0.40–0.50 | No (you did not choose your parents) | **Moderate** — same genetic baseline, but no agency on your part |
-| Siblings | 0.5 | ~0.35–0.45 | No | **Moderate-Low** — same genetic baseline, greater non-additive randomness |
+\begin{table}[ht]
+\centering
+\begin{tabularx}{\textwidth}{l c c c Y}
+	oprule
+Relationship & Additive DNA Relatedness & Approx. Personality-Trait Relatedness (adjusted) & Agency Involved? & Predicted Compatibility Tendency\\
+\midrule
+Partner & ~0 & ~0 & Yes (fully) & \textbf{Very High} — choice is the primary signal (plus modest assortative mating)\\
+Chosen Friends & ~0 & ~0 & Yes (fully) & \textbf{Very High} — choice is the only signal\\
+Children & 0.5 & ~0.40–0.50 (same as parents; assortative mating boosts both equally) & Indirect¹ (parent exercised partner choice) & \textbf{Moderate-High} — significant genetic baseline plus indirect agency effect\\
+Parents & 0.5 & ~0.40–0.50 & No (you did not choose your parents) & \textbf{Moderate} — same genetic baseline, but no agency on your part\\
+Siblings & 0.5 & ~0.35–0.45 & No & \textbf{Moderate-Low} — same genetic baseline, greater non-additive randomness\\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 ¹ *"Indirect (parent exercised partner choice)"* is written from the parent's perspective. From the child's perspective, both parents are equally unchosen — the same situation as the Parents row. The Children > Parents ranking therefore reflects an asymmetry in **agency** (the parent made a choice; the child did not), not an asymmetry in the underlying genetic covariance, which is identical in both directions. The rating is **Moderate-High** rather than **High** because the agency benefit here is parental and unilateral — not a mutual, bilateral selection as in friendships and partnerships — and it adds no genetic increment above the Parents baseline. "High" is reserved for relationships where both parties actively chose each other.
 
